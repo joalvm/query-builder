@@ -1,0 +1,60 @@
+{
+    "name": "query-builder",
+    "version": "0.1.0",
+    "description": "Query Builder typescript",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf lib",
+        "build": "rollup --config=./rollup.config.js",
+        "watch": "rollup --watch --config=./rollup.config.js",
+        "lint": "eslint -c .eslintrc.cjs src/**/*.{ts,tsx,json}",
+        "lint:fix": "eslint -c .eslintrc.cjs --fix src/**/*.{ts,tsx,json}",
+        "format": "prettier --write src/**/*.{ts,tsx,json} --config ./.prettierrc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joalvm/query-builder.git"
+    },
+    "keywords": [
+        "query",
+        "builder",
+        "typescript",
+        "sql"
+    ],
+    "author": "Alejandro Vilchez <joalvm@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joalvm/query-builder/issues"
+    },
+    "homepage": "https://github.com/joalvm/query-builder#readme",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-terser": "^0.4.0",
+        "@rollup/plugin-typescript": "^11.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.53.0",
+        "@typescript-eslint/parser": "^5.53.0",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-import-resolver-typescript": "^3.5.3",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "prettier": "^2.8.4",
+        "rimraf": "^4.1.2",
+        "rollup": "^3.17.2",
+        "tslib": "^2.5.0",
+        "typescript": "^4.9.5"
+    },
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./lib/esm/query.d.ts",
+                "default": "./lib/esm/query.js"
+            },
+            "require": {
+                "types": "./lib/cjs/query.d.ts",
+                "default": "./lib/cjs/query.js"
+            }
+        }
+    }
+}

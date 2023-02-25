@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "lib": ["es2021", "DOM"],
+        "target": "ES2021",
+        "composite": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "outDir": "../lib/cjs",
+        "declarationDir": "../lib/cjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "checkJs": true,
+        "allowJs": true,
+        "declaration": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "lib", "dist"]
+}
