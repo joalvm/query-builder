@@ -1,27 +1,46 @@
 module.exports = {
-    env: {
-        es2021: true,
-        jest: true,
-    },
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
-    overrides: [],
+    root: true,
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: './tsconfig.json',
-        ecmaVersion: 'latest',
+        project: 'tsconfig.json',
+        tsconfigRootDir: __dirname,
         sourceType: 'module',
+        ecmaVersion: 2021,
+        extraFileExtensions: ['.e2e-spec.ts'],
     },
-    plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
+    plugins: ['@typescript-eslint/eslint-plugin', 'prettier', 'simple-import-sort', 'unused-imports'],
+    extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:prettier/recommended',
+        'plugin:import/recommended',
+        'prettier',
+    ],
+    env: {
+        es2021: true,
+        node: true,
+        jest: true,
+    },
+    ignorePatterns: ['.eslintrc.cjs'],
     settings: {
         'import/resolver': {
-            typescript: {},
+            typescript: {
+                project: './tsconfig.json',
+            },
         },
     },
     rules: {
-        'spaced-comment': 'error',
-        'no-duplicate-imports': 'error',
-        'simple-import-sort/imports': 'error',
-        '@typescript-eslint/no-empty-function': 'off',
-        'class-methods-use-this': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+        ],
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        '@typescript-eslint/interface-name-prefix': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
     },
 };

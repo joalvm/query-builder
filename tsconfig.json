@@ -16,6 +16,6 @@
         "declaration": true,
         "allowSyntheticDefaultImports": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "tests/**/*", "jest.config.ts", ".eslintrc.js", ".prettierrc", "rollup.config.ts"],
     "exclude": ["node_modules", "lib", "dist"]
 }

@@ -1,4 +1,4 @@
-const operators = [
+export const pgOperators = [
     '=',
     '<',
     '>',
@@ -11,7 +11,6 @@ const operators = [
     'between',
     'ilike',
     'not ilike',
-    'is',
     '~',
     '&',
     '|',
@@ -35,6 +34,8 @@ const operators = [
     'is not distinct from',
 ] as const;
 
-export type Operators = (typeof operators)[number];
+export const pgBitwiseOperators = ['~', '&', '|', '#', '<<', '>>', '<<=', '>>='] as const;
 
-export default operators;
+export type PgOperators = (typeof pgOperators)[number];
+
+export type PgBitwiseOperators = (typeof pgBitwiseOperators)[number];
